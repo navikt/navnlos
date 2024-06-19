@@ -26,6 +26,6 @@ jobs:
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais.yaml
-          IMAGE: ${{ steps.docker-push.outputs.image }}"
+          IMAGE: ${{ steps.docker-push.outputs.image }}
 
 # FYLL UT DENNE MED EKSEMPLET I DOCS'A
