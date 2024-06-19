@@ -19,6 +19,7 @@ class QuizApplication(private val teamName: String): QuizParticipant(teamName) {
         if (question.category == "team-registration") handleRegisterTeam(question)
         else if (question.category == "ping-pong") handlePingPong(question)
         else if (question.category == "arithmetic") handleArithmetic(question)
+        else if (question.category == "NAV") handleArithmetic(question)
     }
 
 
@@ -54,14 +55,38 @@ class QuizApplication(private val teamName: String): QuizParticipant(teamName) {
         if(operator == "+"){
             answer = num1 + num2
         } else if (operator == "-"){
-           answer = num1 - num2
+            answer = num1 - num2
         } else if (operator == "*"){
             answer = num1 * num2
         } else if (operator == "/") {
             answer = num1 / num2
         }
         answer(question.category, questionId = question.id(), answer.toString())
-        
+
+    }
+
+    private fun handleNav(question: Question){
+        var answer = ""
+        val message1 = "På hvilken nettside finner man informasjon om rekruttering til NAV IT?"
+        val message2 = "Hvor har vi kontor?"
+        val message3 = "Hva heter NAV-direktøren?"
+        val message4 = "Hva heter designsystemet vårt?"
+        val message5 = "Hvor mye er 1G per 1. mai 2023?"
+        val message6 = "Hva heter applikasjonsplattformen til NAV?"
+        if (question.question == message1){
+            answer = "detsombetyrnoe.no"
+        } else if(question.question == message2){
+            answer = "Helsfyr"
+        } else if (question.question == message3) {
+            answer = "Hans Christian Holte"
+        } else if (question.question == message4) {
+            answer = "Aksel"
+        } else if (question.question == message5) {
+            answer = "118620"
+        } else if (question.question == message6) {
+            answer = "NAIS"
+        }
+        answer(question.category, questionId = question.id(), answer)
     }
 
     private fun handleRegisterTeam(question: Question) {
