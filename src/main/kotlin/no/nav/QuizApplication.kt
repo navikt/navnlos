@@ -19,7 +19,7 @@ class QuizApplication(private val teamName: String): QuizParticipant(teamName) {
         if (question.category == "team-registration") handleRegisterTeam(question)
         else if (question.category == "ping-pong") handlePingPong(question)
         else if (question.category == "arithmetic") handleArithmetic(question)
-        else if (question.category == "NAV") handleArithmetic(question)
+        else if (question.category == "NAV") handleNav(question)
     }
 
 
