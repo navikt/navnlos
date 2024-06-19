@@ -18,6 +18,7 @@ class QuizApplication(private val teamName: String): QuizParticipant(teamName) {
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question)
         else if (question.category == "ping-pong") handlePingPong(question)
+        else if (question.category == "arithmetic") handleArithmetic(question)
     }
 
 
@@ -41,7 +42,26 @@ class QuizApplication(private val teamName: String): QuizParticipant(teamName) {
             answer = "ping"
         }
         answer(question.category, questionId = question.id(), answer)
+    }
 
+    private fun handleArithmetic(question: Question){
+        var answer = 0
+        val numberList = question.question.split("\\s+".toRegex())
+        val num1 = numberList[0].toInt()
+        val num2 = numberList[2].toInt()
+        val operator = numberList[1]
+
+        if(operator == "+"){
+            answer = num1 + num2
+        } else if (operator == "-"){
+           answer = num1 - num2
+        } else if (operator == "*"){
+            answer = num1 * num2
+        } else if (operator == "/") {
+            answer = num1 / num2
+        }
+        answer(question.category, questionId = question.id(), answer.toString())
+        
     }
 
     private fun handleRegisterTeam(question: Question) {
