@@ -1,3 +1,3 @@
 
-rootProject.name = "YOUR_REPOSITORY_NAME"
+rootProject.name = "navnlos"
 
